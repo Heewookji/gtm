@@ -1,0 +1,31 @@
+name: gtm
+description: Flutter gtm plugin
+repository: https://github.com/Heewookji/gtm
+issue_tracker: https://github.com/Heewookji/gtm/issues
+version: 0.0.1
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+  flutter: ">=3.0.0"
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        default_package: gtm_android
+      ios:
+        default_package: gtm_ios
+
+dependencies:
+  flutter:
+    sdk: flutter
+  gtm_platform_interface: ^0.0.1
+  gtm_android: ^0.0.1
+  gtm_ios: ^0.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 2.0.1
+  plugin_platform_interface: 2.1.4
+
