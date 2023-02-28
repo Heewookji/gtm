@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - gtm_ios (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - gtm_ios (from `.symlinks/plugins/gtm_ios/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  gtm_ios:
+    :path: ".symlinks/plugins/gtm_ios/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  gtm_ios: 35bf405c1fe34b9c31c4fe93d1e26e9a053bdf11
+
+PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
+
+COCOAPODS: 1.11.3

@@ -2,7 +2,7 @@ name: gtm_platform_interface
 description: Flutter gtm plugin platform interface
 repository: https://github.com/Heewookji/gtm
 issue_tracker: https://github.com/Heewookji/gtm/issues
-version: 0.0.1
+version: 0.0.3
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: 2.1.4
+  plugin_platform_interface: ^2.1.4
 
 dev_dependencies:
   flutter_test:

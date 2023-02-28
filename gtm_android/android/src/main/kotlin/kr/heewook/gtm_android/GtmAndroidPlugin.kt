@@ -17,7 +17,7 @@ class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler {
   private lateinit var channel : MethodChannel
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "gtm_android")
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "heewook.kr/gtm_android")
     channel.setMethodCallHandler(this)
   }
 
