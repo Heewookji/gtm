@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import FirebaseAnalytics
 
 public class SwiftGtmIosPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -9,6 +10,7 @@ public class SwiftGtmIosPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    result("iOS " + UIDevice.current.systemVersion)
+//     result("iOS " + UIDevice.current.systemVersion)
+      Analytics.logEvent("test", parameters: [:])
   }
 }
