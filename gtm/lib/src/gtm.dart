@@ -13,6 +13,10 @@ class Gtm {
 
   Gtm._();
 
+  void setCustomTagHandler(CustomTagHandler handler) {
+    GtmPlatform.instance.setCustomTagHandler(handler);
+  }
+
   Future<String?> getPlatformVersion() {
     return GtmPlatform.instance.getPlatformVersion();
   }

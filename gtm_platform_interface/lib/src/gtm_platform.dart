@@ -1,5 +1,13 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
+typedef CustomTagHandler = Future<void> Function(
+  String event,
+  dynamic arguments,
+);
+
+const String customTagMethod = 'CustomTag';
+const String eventNamePropertyName = 'eventName';
+
 abstract class GtmPlatform extends PlatformInterface {
   /// Constructs a GtmPlatform.
   GtmPlatform() : super(token: _token);
@@ -17,6 +25,10 @@ abstract class GtmPlatform extends PlatformInterface {
   static set instance(GtmPlatform instance) {
     PlatformInterface.verify(instance, _token);
     _instance = instance;
+  }
+
+  void setCustomTagHandler(CustomTagHandler handler) {
+    throw UnimplementedError('setCustomTagHandler() has not been implemented.');
   }
 
   Future<String?> getPlatformVersion() {

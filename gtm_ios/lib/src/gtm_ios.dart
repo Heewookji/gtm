@@ -10,6 +10,16 @@ class GtmIOS extends GtmPlatform {
   }
 
   @override
+  void setCustomTagHandler(CustomTagHandler handler) {
+    _channel.setMethodCallHandler(
+      (call) async {
+        if (call.method != customTagMethod) return;
+        await handler(call.arguments[eventNamePropertyName], call.arguments);
+      },
+    );
+  }
+
+  @override
   Future<String?> getPlatformVersion() {
     return _channel.invokeMethod<String>('getPlatformVersion');
   }

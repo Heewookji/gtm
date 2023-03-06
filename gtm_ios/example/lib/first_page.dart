@@ -14,7 +14,15 @@ class _FirstPageState extends State<FirstPage> {
   void initState() {
     super.initState();
     try {
-      GtmIOS().getPlatformVersion();
+      final gtm = GtmIOS()
+        ..setCustomTagHandler(
+          (event, arguments) async {
+            print(event);
+            print(arguments);
+            return;
+          },
+        );
+      gtm.getPlatformVersion();
     } on PlatformException {
       print('exception occurred!');
     }
