@@ -13,11 +13,14 @@ class Gtm {
 
   Gtm._();
 
-  void setCustomTagHandler(CustomTagHandler handler) {
-    GtmPlatform.instance.setCustomTagHandler(handler);
+  void setCustomTags(List<CustomTag> tags) {
+    GtmPlatform.instance.setCustomTags(tags);
   }
 
-  Future<String?> getPlatformVersion() {
-    return GtmPlatform.instance.getPlatformVersion();
+  Future<bool> push(
+    String eventName, {
+    required Map<String, dynamic> parameters,
+  }) {
+    return GtmPlatform.instance.push(eventName, parameters: parameters);
   }
 }

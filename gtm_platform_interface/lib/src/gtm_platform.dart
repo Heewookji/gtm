@@ -1,14 +1,24 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-typedef CustomTagHandler = Future<void> Function(
-  String event,
-  dynamic arguments,
-);
+class CustomTag {
+  final String tagType;
+  final Function(
+    String eventName,
+    Map<String, dynamic> parameters,
+  ) handler;
 
-const String customTagMethod = 'CustomTag';
-const String eventNamePropertyName = 'eventName';
+  CustomTag(
+    this.tagType, {
+    required this.handler,
+  });
+}
 
 abstract class GtmPlatform extends PlatformInterface {
+  static const String customTag = 'CustomTag';
+  static const String eventName = 'eventName';
+  static const String tagType = 'tagType';
+  static const String eventParameters = 'eventParameters';
+
   /// Constructs a GtmPlatform.
   GtmPlatform() : super(token: _token);
 
@@ -27,11 +37,14 @@ abstract class GtmPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  void setCustomTagHandler(CustomTagHandler handler) {
-    throw UnimplementedError('setCustomTagHandler() has not been implemented.');
+  void setCustomTags(List<CustomTag> tags) {
+    throw UnimplementedError('setCustomTags() has not been implemented.');
   }
 
-  Future<String?> getPlatformVersion() {
+  Future<bool> push(
+    String eventName, {
+    required Map<String, dynamic> parameters,
+  }) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }

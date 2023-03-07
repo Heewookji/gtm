@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gtm_ios/gtm_ios.dart';
+import 'package:gtm_platform_interface/gtm_platform_interface.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -15,14 +16,22 @@ class _FirstPageState extends State<FirstPage> {
     super.initState();
     try {
       final gtm = GtmIOS()
-        ..setCustomTagHandler(
-          (event, arguments) async {
-            print(event);
-            print(arguments);
-            return;
-          },
-        );
-      gtm.getPlatformVersion();
+        ..setCustomTags([
+          CustomTag(
+            'amplitude',
+            handler: (eventName, parameters) {
+              print('amplitude!');
+              print(eventName);
+              print(parameters);
+            },
+          ),
+        ]);
+      gtm.push(
+        'test',
+        parameters: {
+          'user_no': 912342,
+        },
+      );
     } on PlatformException {
       print('exception occurred!');
     }
