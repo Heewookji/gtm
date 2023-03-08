@@ -1,14 +1,14 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-class CustomTag {
-  final String tagType;
+class CustomTagType {
+  final String name;
   final Function(
     String eventName,
     Map<String, dynamic> parameters,
   ) handler;
 
-  CustomTag(
-    this.tagType, {
+  CustomTagType(
+    this.name, {
     required this.handler,
   });
 }
@@ -37,8 +37,8 @@ abstract class GtmPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  void setCustomTags(List<CustomTag> tags) {
-    throw UnimplementedError('setCustomTags() has not been implemented.');
+  void setCustomTagTypes(List<CustomTagType> tagTypes) {
+    throw UnimplementedError('setCustomTagTypes() has not been implemented.');
   }
 
   Future<bool> push(

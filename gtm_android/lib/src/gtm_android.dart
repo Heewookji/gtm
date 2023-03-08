@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:gtm_platform_interface/gtm_platform_interface.dart';
 
@@ -10,7 +12,33 @@ class GtmAndroid extends GtmPlatform {
   }
 
   @override
-  Future<String?> getPlatformVersion() {
-    return _channel.invokeMethod<String>('getPlatformVersion');
+  void setCustomTagTypes(List<CustomTagType> tagTypes) {
+    _channel.setMethodCallHandler(
+      (call) async {
+        if (call.method != GtmPlatform.customTag) return;
+        final arguments = json.decode(call.arguments);
+        final triggeredTagType = tagTypes.firstWhere(
+          (tagType) => tagType.name == arguments[GtmPlatform.tagType],
+        );
+        await triggeredTagType.handler(
+          arguments[GtmPlatform.eventName],
+          arguments,
+        );
+      },
+    );
+  }
+
+  @override
+  Future<bool> push(
+    String eventName, {
+    required Map<String, dynamic> parameters,
+  }) async {
+    final result = await _channel.invokeMethod<bool>(
+        'push',
+        jsonEncode({
+          GtmPlatform.eventName: eventName,
+          GtmPlatform.eventParameters: parameters,
+        }));
+    return result ?? false;
   }
 }

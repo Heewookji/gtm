@@ -16,8 +16,8 @@ class _FirstPageState extends State<FirstPage> {
     super.initState();
     try {
       final gtm = GtmIOS()
-        ..setCustomTags([
-          CustomTag(
+        ..setCustomTagTypes([
+          CustomTagType(
             'amplitude',
             handler: (eventName, parameters) {
               print('amplitude!');

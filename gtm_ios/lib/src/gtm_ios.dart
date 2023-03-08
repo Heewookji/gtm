@@ -12,15 +12,18 @@ class GtmIOS extends GtmPlatform {
   }
 
   @override
-  void setCustomTags(List<CustomTag> tags) {
+  void setCustomTagTypes(List<CustomTagType> tagTypes) {
     _channel.setMethodCallHandler(
       (call) async {
         if (call.method != GtmPlatform.customTag) return;
         final arguments = json.decode(call.arguments);
-        final tag = tags.firstWhere(
-          (tag) => tag.tagType == arguments[GtmPlatform.tagType],
+        final triggeredTagType = tagTypes.firstWhere(
+          (tagType) => tagType.name == arguments[GtmPlatform.tagType],
         );
-        await tag.handler(arguments[GtmPlatform.eventName], arguments);
+        await triggeredTagType.handler(
+          arguments[GtmPlatform.eventName],
+          arguments,
+        );
       },
     );
   }

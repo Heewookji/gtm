@@ -13,8 +13,8 @@ class Gtm {
 
   Gtm._();
 
-  void setCustomTags(List<CustomTag> tags) {
-    GtmPlatform.instance.setCustomTags(tags);
+  void setCustomTagTypes(List<CustomTagType> tagTypes) {
+    GtmPlatform.instance.setCustomTagTypes(tagTypes);
   }
 
   Future<bool> push(
