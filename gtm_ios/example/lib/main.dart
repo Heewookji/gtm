@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
-import 'first_page.dart';
+import 'package:flutter/services.dart';
+import 'package:gtm_ios/gtm_ios.dart';
+import 'package:gtm_platform_interface/gtm_platform_interface.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +16,52 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: FirstPage(),
+      home: Home(),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+    try {
+      final gtm = GtmIOS()
+        ..setCustomTagTypes([
+          CustomTagType(
+            'amplitude',
+            handler: (eventName, parameters) {
+              print('amplitude!');
+              print(eventName);
+              print(parameters);
+            },
+          ),
+        ]);
+      gtm.push(
+        'test',
+        parameters: {
+          'user_no': 912342,
+        },
+      );
+    } on PlatformException {
+      print('exception occurred!');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Plugin example app'),
+      ),
+      body: Container(),
     );
   }
 }
