@@ -19,12 +19,9 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
-  gtm_platform_interface:
-    path: ../gtm_platform_interface
-  gtm_android:
-    path: ../gtm_android
-  gtm_ios:
-    path: ../gtm_ios
+  gtm_platform_interface: ^0.0.3
+  gtm_android: ^0.0.3
+  gtm_ios: ^0.0.3
 
 dev_dependencies:
   flutter_test:
