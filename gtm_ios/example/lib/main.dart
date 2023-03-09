@@ -50,6 +50,20 @@ class _HomeState extends State<Home> {
           'user_no': 912342,
         },
       );
+      gtm.push(
+        'readCase',
+        parameters: {
+          'user_no': 912342,
+          'user_type': 2,
+        },
+      );
+      gtm.push(
+        'buyEduCamp',
+        parameters: {
+          'user_no': 912342,
+          'price': 10000.0,
+        },
+      );
     } on PlatformException {
       print('exception occurred!');
     }
