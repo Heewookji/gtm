@@ -4,4 +4,5 @@
 
 ## 0.0.2
 
-* add getPlatformVersion
+* add push
+* add CustomTag

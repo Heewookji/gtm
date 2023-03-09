@@ -14,3 +14,8 @@
 
 * add CustomTagType
 * add static constants
+
+
+## 0.0.5
+
+* add CustomTagType doc

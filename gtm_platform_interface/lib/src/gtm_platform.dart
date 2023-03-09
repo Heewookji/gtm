@@ -1,5 +1,7 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
+/// Whenever a tag matching the name of the [CustomTagType] is triggered, the [handler] is executed.
+/// The [name] property must match the tagType value of the CustomTag set in the Gtm container.
 class CustomTagType {
   final String name;
   final Function(
