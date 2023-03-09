@@ -9,3 +9,8 @@
 ## 0.0.3
 
 * change instance not nullable
+
+## 0.0.4
+
+* add CustomTagType
+* add static constants
