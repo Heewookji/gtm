@@ -18,13 +18,7 @@ import org.json.JSONException
 import org.json.JSONObject
 import io.flutter.plugin.common.MethodChannel.Result as MethodChannelResult
 
-
-/** GtmAndroidPlugin */
 class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
-  /// The MethodChannel that will the communication between Flutter and native Android
-  ///
-  /// This local reference serves to register the plugin with the Flutter Engine and unregister it
-  /// when the Flutter Engine is detached from the Activity
   companion object {
     @JvmStatic
     lateinit var channel: MethodChannel
@@ -67,7 +61,6 @@ class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       result.error("EXCEPTION_IN_HANDLE", e.message, null)
     }
   }
-  // helper function to decode arguments
   @Throws(Exception::class)
   private fun decodeArguments(arguments: String): JSONObject {
     return JSONObject(arguments)
