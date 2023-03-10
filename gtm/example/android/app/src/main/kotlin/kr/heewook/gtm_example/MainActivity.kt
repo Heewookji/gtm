@@ -1,4 +1,4 @@
-package com.example.example
+package kr.heewook.gtm_example
 
 import io.flutter.embedding.android.FlutterActivity
 
