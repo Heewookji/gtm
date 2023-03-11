@@ -10,3 +10,7 @@
 
 * add push
 * add CustomTag
+
+## 0.0.4
+
+* fix CustomTag bug

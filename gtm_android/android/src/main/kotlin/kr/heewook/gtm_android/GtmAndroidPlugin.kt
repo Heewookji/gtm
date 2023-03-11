@@ -13,6 +13,7 @@ import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
+import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import org.json.JSONException
 import org.json.JSONObject
@@ -25,15 +26,17 @@ class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     @JvmStatic
     lateinit var activity: Activity
   }
+  private lateinit var binaryMessenger: BinaryMessenger
   private lateinit var firebaseAnalytics: FirebaseAnalytics
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+    binaryMessenger = flutterPluginBinding.binaryMessenger
     firebaseAnalytics = Firebase.analytics
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "heewook.kr/gtm_android")
-    channel.setMethodCallHandler(this)
   }
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
     activity = binding.activity
+    channel = MethodChannel(binaryMessenger, "heewook.kr/gtm_android")
+    channel.setMethodCallHandler(this)
   }
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
     onAttachedToActivity(binding)
