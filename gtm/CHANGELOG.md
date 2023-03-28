@@ -10,3 +10,7 @@
 ## 0.0.3
 
 * fix parameter nullable
+
+## 0.0.4
+
+* fix parameter nullable

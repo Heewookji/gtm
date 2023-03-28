@@ -54,7 +54,11 @@ class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       when (call.method) {
         "push" -> {
           val eventName = args.getString("eventName")
-          val eventParameters = jsonToBundle(args.getJSONObject("eventParameters"))
+          val eventParameters = if (args.has("eventParameters")) {
+            jsonToBundle(args.getJSONObject("eventParameters"))
+          } else {
+            null
+          }
           firebaseAnalytics.logEvent(eventName, eventParameters)
           result.success(true)
         }
