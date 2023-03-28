@@ -6,3 +6,7 @@
 
 * add push
 * add CustomTag
+
+## 0.0.3
+
+* fix parameter nullable

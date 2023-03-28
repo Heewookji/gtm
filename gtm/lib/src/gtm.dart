@@ -18,8 +18,15 @@ class Gtm {
   /// [Map] object with property: value pairs.
   Future<bool> push(
     String eventName, {
-    required Map<String, dynamic> parameters,
+    Map<String, dynamic>? parameters,
   }) {
+    parameters?.removeWhere((key, value) {
+      assert(
+        value is String || value is num || value is bool || value == null,
+        "'string', 'number', 'boolean' must be set as the value of the parameter: $key",
+      );
+      return value == null;
+    });
     return GtmPlatform.instance.push(eventName, parameters: parameters);
   }
 }

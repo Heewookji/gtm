@@ -19,3 +19,7 @@
 ## 0.0.5
 
 * add CustomTagType doc
+
+## 0.0.6
+
+* fix parameter nullable

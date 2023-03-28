@@ -14,3 +14,7 @@
 ## 0.0.4
 
 * fix CustomTag bug
+
+## 0.0.5
+
+* fix parameter nullable

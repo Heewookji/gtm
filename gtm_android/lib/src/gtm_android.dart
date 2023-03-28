@@ -31,13 +31,13 @@ class GtmAndroid extends GtmPlatform {
   @override
   Future<bool> push(
     String eventName, {
-    required Map<String, dynamic> parameters,
+    Map<String, dynamic>? parameters,
   }) async {
     final result = await _channel.invokeMethod<bool>(
         'push',
         jsonEncode({
           GtmPlatform.eventName: eventName,
-          GtmPlatform.eventParameters: parameters,
+          if (parameters != null) GtmPlatform.eventParameters: parameters,
         }));
     return result ?? false;
   }

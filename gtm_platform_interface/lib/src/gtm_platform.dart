@@ -6,7 +6,7 @@ class CustomTagType {
   final String name;
   final Function(
     String eventName,
-    Map<String, dynamic> parameters,
+    Map<String, dynamic>? parameters,
   ) handler;
 
   CustomTagType(
@@ -45,7 +45,7 @@ abstract class GtmPlatform extends PlatformInterface {
 
   Future<bool> push(
     String eventName, {
-    required Map<String, dynamic> parameters,
+    Map<String, dynamic>? parameters,
   }) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
