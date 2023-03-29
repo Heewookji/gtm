@@ -71,8 +71,7 @@ You can find more configuration details at [GTM Android Documentation](https://d
 2. Download Container version file(GTM-xxxxxxx.json)
 3. Put it in `$Project/android/app/src/main/assets/containers` (not container)
 
-<aside>
-💡 GTM-xxxxxxx.json is used when setting up GTM on first launch of the app and when the app is offline. Otherwise, the latest version of the GTM container is automatically reflected.
+**Note:** GTM-xxxxxxx.json is used when setting up GTM on first launch of the app and when the app is offline. Otherwise, the latest version of the GTM container is automatically reflected.
 </aside>
 
 # **How to use**
