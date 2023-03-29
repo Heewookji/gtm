@@ -1,10 +1,17 @@
-# README
-
-# gtm
-
 gtm is a google-tag-manager plugin.
 
-## Example
+# Table of contents
+
+- [Example](#example)
+- [Configuration](#configuration)
+  - [Firebase Analytics](#firebase-analytics)
+  - [iOS](#ios)
+  - [Android](#android)
+- [How to use](#how-to-use)
+  - [Push event](#push-event)
+  - [CustomTag](#customtag)
+
+# Example
 
 ```dart
 import 'package:gtm/gtm.dart';
@@ -35,18 +42,18 @@ gtm.push(
 );
 ```
 
-## Configuration
+# Configuration
 
-### Firebase Analytics
+## Firebase Analytics
 
-![Untitled](README%20b8e16e002d9542a5adfc2e91cbf96fcc/Untitled.png)
+![datalayer](https://user-images.githubusercontent.com/46276533/228402526-c6d9c9c7-6099-4696-8f7c-d433a9bb073e.png)
 
 To use this plugin you need to set `Firebase Analytics` up in your project first.
 Because `firebase analytics` is playing the role of `datalayer` in the app.
 
 For Firebase settings, you can check to the [Firebase documentation](https://firebase.google.com/docs/analytics/get-started?platform=flutter).
 
-### iOS
+## iOS
 
 You can find more configuration details at [GTM iOS Documentation](https://developers.google.com/tag-platform/tag-manager/ios/v5)
 
@@ -56,7 +63,7 @@ You can find more configuration details at [GTM iOS Documentation](https://devel
 4. In Xcode, select File - Add files to Runner
 5. Select `container` folder with `Create folder references` option
 
-### Android
+## Android
 
 You can find more configuration details at [GTM Android Documentation](https://developers.google.com/tag-platform/tag-manager/android/v5)
 
@@ -66,12 +73,11 @@ You can find more configuration details at [GTM Android Documentation](https://d
 
 <aside>
 💡 GTM-xxxxxxx.json is used when setting up GTM on first launch of the app and when the app is offline. Otherwise, the latest version of the GTM container is automatically reflected.
-
 </aside>
 
-## **How to use**
+# **How to use**
 
-### Push event
+## Push event
 
 ```dart
 // Push event
@@ -87,7 +93,7 @@ Parameter value can be `String`, `bool`, `num`.
 
 Since `ga4` is used to push events, `ga4` events are automatically triggered(unless you ignore it).
 
-### CustomTag
+## CustomTag
 
 Sometimes the tags provided by default in gtm are not enough. In this case, custom tag is used. If you want to use a custom tag, you must create the tag in the container with the following rules.
 
@@ -99,17 +105,14 @@ Sometimes the tags provided by default in gtm are not enough. In this case, cust
 
 You can refer to the following example.
 
-![iOS example](README%20b8e16e002d9542a5adfc2e91cbf96fcc/Untitled%201.png)
+### iOS example
+![iOS example](https://user-images.githubusercontent.com/46276533/228402694-40be41e4-3f12-4de8-94e5-87f3806be116.png)
 
-iOS example
+### Android example
+![Android example](https://user-images.githubusercontent.com/46276533/228402946-53f72127-4c24-4a8f-8cfa-62be48ea63a2.png)
 
-![Android example](README%20b8e16e002d9542a5adfc2e91cbf96fcc/Untitled%202.png)
-
-Android example
-
-![Attached Trigger](README%20b8e16e002d9542a5adfc2e91cbf96fcc/Untitled%203.png)
-
-Attached Trigger
+### Attached Trigger
+![Attached Trigger](https://user-images.githubusercontent.com/46276533/228402997-b4725512-ab6e-4bf6-aa05-4a23596568c6.png)
 
 ```dart
 // Set CustomTagType
@@ -119,7 +122,7 @@ gtm.setCustomTagTypes(
       'amplitude',
       handler: (eventName, parameters) {
         print('amplitude!');
-				// will print 'test'
+	// will print 'test'
         print(eventName);
         print(parameters);
       },
