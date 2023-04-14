@@ -14,3 +14,7 @@
 ## 0.0.4
 
 * fix parameter nullable
+
+## 0.0.5
+
+* apply static_framework
