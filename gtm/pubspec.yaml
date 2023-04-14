@@ -3,7 +3,7 @@ description: Flutter plugin for Google Tag Manager, A solution that allows you t
   advertising performance measurement, and affiliate marketing tracking.
 repository: https://github.com/Heewookji/gtm
 issue_tracker: https://github.com/Heewookji/gtm/issues
-version: 0.0.6
+version: 0.0.7
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
@@ -22,7 +22,7 @@ dependencies:
     sdk: flutter
   gtm_platform_interface: ^0.0.6
   gtm_android: ^0.0.6
-  gtm_ios: ^0.0.4
+  gtm_ios: ^0.0.5
 
 dev_dependencies:
   flutter_test:
