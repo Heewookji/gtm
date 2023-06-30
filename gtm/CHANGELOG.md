@@ -26,3 +26,7 @@
 ## 0.0.7
 
 * apply ios static_framework
+
+## 0.0.8
+
+* fix release mode android CustomTag bug

@@ -22,3 +22,7 @@
 ## 0.0.6
 
 * fix parameter nullable
+
+## 0.0.7
+
+* add @Keep to CustomTag class

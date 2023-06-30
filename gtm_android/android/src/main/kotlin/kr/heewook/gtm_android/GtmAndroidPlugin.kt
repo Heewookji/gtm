@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.NonNull
+import androidx.annotation.Keep
 import com.google.android.gms.tagmanager.CustomTagProvider
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
@@ -86,7 +87,7 @@ class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
 }
-
+@Keep
 class CustomTag: CustomTagProvider {
   @Throws(Exception::class)
   private fun encodeArguments(argumentsMap: Map<String, Any>): String {
