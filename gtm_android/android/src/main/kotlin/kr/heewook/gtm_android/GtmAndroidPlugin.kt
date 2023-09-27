@@ -18,6 +18,7 @@ import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import org.json.JSONException
 import org.json.JSONObject
+import org.json.JSONArray
 import io.flutter.plugin.common.MethodChannel.Result as MethodChannelResult
 
 class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
@@ -56,7 +57,7 @@ class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         "push" -> {
           val eventName = args.getString("eventName")
           val eventParameters = if (args.has("eventParameters")) {
-            jsonToBundle(args.getJSONObject("eventParameters"))
+            jsonObjectToBundle(args.getJSONObject("eventParameters"))
           } else {
             null
           }
@@ -75,32 +76,79 @@ class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   @Throws(JSONException::class)
-  fun jsonToBundle(jsonObject: JSONObject): Bundle? {
+  fun jsonObjectToBundle(jsonObject: JSONObject): Bundle? {
     val bundle = Bundle()
     val iterator: Iterator<*> = jsonObject.keys()
     while (iterator.hasNext()) {
       val key = iterator.next() as String
-      val value = jsonObject.getString(key)
-      bundle.putString(key, value)
+      val value = jsonObject.get(key)
+      when (value) {
+        is String -> bundle.putString(key, value)
+        is Int -> bundle.putInt(key, value)
+        is Double -> bundle.putDouble(key, value)
+        is Boolean -> bundle.putBoolean(key, value)
+        is JSONArray -> bundle.putString(key, value.toString())
+        is JSONObject -> bundle.putString(key, value.toString())
+        else -> {
+          Log.w("GTM", "Unsupported data type for key: $key")
+        }
+      }
     }
     return bundle
   }
-
 }
 @Keep
 class CustomTag: CustomTagProvider {
-  @Throws(Exception::class)
-  private fun encodeArguments(argumentsMap: Map<String, Any>): String {
-    return JSONObject(argumentsMap).toString()
-  }
   override fun execute(@NonNull parameters: Map<String, Any>) {
+    val arguments = convertJsonStringsToJsonObject(parameters)
     return try {
       GtmAndroidPlugin.activity.runOnUiThread {
-        GtmAndroidPlugin.channel.invokeMethod("CustomTag", encodeArguments(parameters))
+        GtmAndroidPlugin.channel.invokeMethod("CustomTag", encodeArguments(arguments))
       }
     } catch (e: Exception) {
       e.message?.let { Log.d("Gtm CustomTag error", it) }
       return
     }
+  }
+
+  fun convertJsonStringsToJsonObject(map: Map<String, Any>): Map<String, Any> {
+    val result = mutableMapOf<String, Any>()
+    for ((key, value) in map) {
+      if (value !is String) {
+        result[key] = value
+        continue
+      }
+      val encodedObject = jsonStringToJsonObject(value)
+      if (encodedObject != null) {
+        result[key] = encodedObject
+        continue
+      }
+      val encodedArray = jsonStringToJsonArray(value)
+      if (encodedArray != null) {
+        result[key] = encodedArray
+        continue
+      }
+      result[key] = value
+    }
+    return result
+  }
+  fun jsonStringToJsonObject(jsonString: String): JSONObject? {
+    try {
+      return JSONObject(jsonString)
+    } catch (e: JSONException) {
+      return null
+    }
+  }
+
+  fun jsonStringToJsonArray(jsonString: String): JSONArray? {
+    try {
+      return JSONArray(jsonString)
+    } catch (e: JSONException) {
+      return null
+    }
+  }
+  @Throws(Exception::class)
+  private fun encodeArguments(argumentsMap: Map<String, Any>): String {
+    return JSONObject(argumentsMap).toString()
   }
 }
