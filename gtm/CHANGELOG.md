@@ -30,3 +30,7 @@
 ## 0.0.8
 
 * fix release mode android CustomTag bug
+
+## 0.1.0
+
+* support Array, Map type

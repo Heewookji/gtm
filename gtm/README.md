@@ -1,4 +1,9 @@
-gtm is a google-tag-manager plugin.
+<p align="center"><img src="https://github.com/Heewookji/gtm/assets/46276533/e74377a4-5df9-4ade-9e86-4be6bf6e66f4"></p>
+
+Gtm is a google-tag-manager plugin.
+
+This package is not an official package. 
+Likes help me a lot! 👍
 
 # Table of contents
 
@@ -88,7 +93,7 @@ gtm.push(
 );
 ```
 
-Parameter value can be `String`, `bool`, `num`.
+Parameter value can be `String`, `bool`, `int`, `double`, `List`, `Map`.
 
 Since `ga4` is used to push events, `ga4` events are automatically triggered(unless you ignore it).
 
