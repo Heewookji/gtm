@@ -1,4 +1,6 @@
 Gtm is a google-tag-manager plugin.
+This package is not an official package. 
+Likes help me a lot! 👍
 
 # Table of contents
 
