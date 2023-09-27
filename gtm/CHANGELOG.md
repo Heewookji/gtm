@@ -34,3 +34,7 @@
 ## 0.1.0
 
 * support Array, Map type
+
+## 0.1.1
+
+* fix Array, Map type assert

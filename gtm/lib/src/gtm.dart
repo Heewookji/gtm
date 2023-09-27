@@ -22,8 +22,13 @@ class Gtm {
   }) {
     parameters?.removeWhere((key, value) {
       assert(
-        value is String || value is num || value is bool || value == null,
-        "'string', 'number', 'boolean' must be set as the value of the parameter: $key",
+        value is String ||
+            value is num ||
+            value is bool ||
+            value is List ||
+            value is Map ||
+            value == null,
+        "'String', 'num', 'bool', 'List', 'Map' must be set as the value of the parameter: $key",
       );
       return value == null;
     });
