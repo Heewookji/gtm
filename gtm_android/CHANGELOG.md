@@ -26,3 +26,7 @@
 ## 0.0.7
 
 * add @Keep to CustomTag class
+
+## 0.1.0
+
+* support Array, Map type

@@ -18,8 +18,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  firebase_core: 2.6.1
-  firebase_analytics: 10.1.3
+  firebase_core: ^2.15.1
+  firebase_analytics: ^10.4.5
   gtm_android:
     # When depending on this package from a real application you should use:
     #   gtm_android: ^x.y.z

@@ -1,4 +1,4 @@
-gtm is a google-tag-manager plugin.
+Gtm is a google-tag-manager plugin.
 
 # Table of contents
 
@@ -88,7 +88,7 @@ gtm.push(
 );
 ```
 
-Parameter value can be `String`, `bool`, `num`.
+Parameter value can be `String`, `bool`, `int`, `double`, `List`, `Map`.
 
 Since `ga4` is used to push events, `ga4` events are automatically triggered(unless you ignore it).
 
