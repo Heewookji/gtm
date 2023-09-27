@@ -1,3 +1,5 @@
+<p align="center"><img src="https://github.com/Heewookji/gtm/assets/46276533/e74377a4-5df9-4ade-9e86-4be6bf6e66f4"></p>
+
 Gtm is a google-tag-manager plugin.
 
 This package is not an official package. 
