@@ -38,3 +38,7 @@
 ## 0.1.1
 
 * fix Array, Map type assert
+
+## 0.1.2
+
+* fix readme, repository url

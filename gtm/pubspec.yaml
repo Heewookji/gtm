@@ -1,9 +1,9 @@
 name: gtm
 description: Flutter plugin for Google Tag Manager, A solution that allows you to manage various tags such as analysis, 
   advertising performance measurement, and affiliate marketing tracking.
-repository: https://github.com/Heewookji/gtm
+repository: https://github.com/Heewookji/gtm/tree/main/gtm
 issue_tracker: https://github.com/Heewookji/gtm/issues
-version: 0.1.1
+version: 0.1.2
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
