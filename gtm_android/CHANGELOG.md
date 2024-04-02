@@ -30,3 +30,7 @@
 ## 0.1.0
 
 * support Array, Map type
+
+## 0.1.1
+
+* Add support for agp >= 4.2
