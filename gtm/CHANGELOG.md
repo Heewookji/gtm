@@ -42,3 +42,7 @@
 ## 0.1.2
 
 * fix readme, repository url
+
+## 0.1.3
+
+* update android interface dependency
