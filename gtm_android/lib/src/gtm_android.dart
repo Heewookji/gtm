@@ -44,8 +44,6 @@ class GtmAndroid extends GtmPlatform {
 
   @override
   void hideInfoLog() {
-    _channel.invokeMethod<void>(
-      'hideInfoLog',
-    );
+    /// Unlike ios, Android doesn't already output event logs.
   }
 }
