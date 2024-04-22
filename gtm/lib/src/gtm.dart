@@ -34,4 +34,11 @@ class Gtm {
     });
     return GtmPlatform.instance.push(eventName, parameters: parameters);
   }
+
+  /// Hide default gtm log.
+  ///
+  /// Unlike ios, Android doesn't already output event logs.
+  void hideInfoLog() {
+    return GtmPlatform.instance.hideInfoLog();
+  }
 }

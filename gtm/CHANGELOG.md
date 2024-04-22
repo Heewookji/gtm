@@ -50,3 +50,7 @@
 ## 0.1.4
 
 * add hideInfoLog
+
+## 0.1.5
+
+* fix hideInfoLog
