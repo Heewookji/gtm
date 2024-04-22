@@ -28,6 +28,12 @@ class GtmIOS extends GtmPlatform {
     );
   }
 
+  void hideInfoLog() {
+    _channel.invokeMethod<void>(
+      'hideInfoLog',
+    );
+  }
+
   @override
   Future<bool> push(
     String eventName, {

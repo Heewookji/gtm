@@ -23,22 +23,45 @@ public class SwiftGtmIosPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-      do {
+    do {
+      switch call.method {
+        case "push":
           if let args = try decodeArguments(call.arguments) {
-              switch (call.method) {
-              case "push":
-                  let eventName = args["eventName"] as! String
-                  let eventParameters = args["eventParameters"] as! [String: Any]?
-                  Analytics.logEvent(eventName, parameters: eventParameters)
-                  result(true)
-              default:
-                  result(FlutterMethodNotImplemented)
-              }
+            let eventName = args["eventName"] as! String
+            let eventParameters = args["eventParameters"] as! [String: Any]?
+            Analytics.logEvent(eventName, parameters: eventParameters)
+            result(true)
+          } else {
+            result(false)
           }
-      } catch {
-                  result(FlutterError.init(code: "EXCEPTION_IN_HANDLE",
-                                           message: "Exception happened in handle.", details: nil))
+        case "hideInfoLog":
+          hideInfoLog()
+        default:
+          result(FlutterMethodNotImplemented)
       }
+    } catch {
+      result(FlutterError.init(
+        code: "EXCEPTION_IN_HANDLE",
+        message: "Exception happened in handle.",
+        details: nil
+      ))
+    }
+  }
+
+  private func hideInfoLog() {
+    let tagClass: AnyClass? = NSClassFromString("TAGLogger")
+    let originalSelector = NSSelectorFromString("info:")
+    let detourSelector = #selector(SwiftGtmIosPlugin.detour_info(message:))
+    guard let originalMethod = class_getClassMethod(tagClass, originalSelector),
+        let detourMethod = class_getClassMethod(SwiftGtmIosPlugin.self, detourSelector) else { return }
+    class_addMethod(tagClass, detourSelector,
+                    method_getImplementation(detourMethod), method_getTypeEncoding(detourMethod))
+    method_exchangeImplementations(originalMethod, detourMethod)
+  }
+
+  @objc
+  static private func detour_info(message: String) {
+      return
   }
 }
 
