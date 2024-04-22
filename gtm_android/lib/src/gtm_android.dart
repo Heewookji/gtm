@@ -41,4 +41,11 @@ class GtmAndroid extends GtmPlatform {
         }));
     return result ?? false;
   }
+
+  @override
+  void hideInfoLog() {
+    _channel.invokeMethod<void>(
+      'hideInfoLog',
+    );
+  }
 }

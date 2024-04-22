@@ -23,3 +23,7 @@
 ## 0.0.6
 
 * fix parameter nullable
+
+## 0.1.0
+
+* add hideInfoLog

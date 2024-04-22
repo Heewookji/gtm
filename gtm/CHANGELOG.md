@@ -46,3 +46,7 @@
 ## 0.1.3
 
 * update android interface dependency
+
+## 0.1.3
+
+* add hideInfoLog

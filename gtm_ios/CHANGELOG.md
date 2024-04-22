@@ -18,3 +18,7 @@
 ## 0.0.5
 
 * apply static_framework
+
+## 0.1.0
+
+* add hideInfoLog

@@ -49,6 +49,10 @@ abstract class GtmPlatform extends PlatformInterface {
   }) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  void hideInfoLog() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
 }
 
 class GtmDefault extends GtmPlatform {}

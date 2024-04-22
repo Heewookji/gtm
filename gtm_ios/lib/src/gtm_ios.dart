@@ -28,6 +28,7 @@ class GtmIOS extends GtmPlatform {
     );
   }
 
+  @override
   void hideInfoLog() {
     _channel.invokeMethod<void>(
       'hideInfoLog',
