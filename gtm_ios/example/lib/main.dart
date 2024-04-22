@@ -43,7 +43,8 @@ class _HomeState extends State<Home> {
               print(parameters);
             },
           ),
-        ]);
+        ])
+        ..hideInfoLog();
       gtm.push(
         'test',
         parameters: {
