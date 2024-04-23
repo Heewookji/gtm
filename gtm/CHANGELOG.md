@@ -54,3 +54,7 @@
 ## 0.1.5
 
 * fix hideInfoLog
+
+## 0.1.6
+
+* apply main thread to ios customTag

@@ -2,7 +2,7 @@ name: gtm_ios
 description: Flutter gtm plugin ios
 repository: https://github.com/Heewookji/gtm
 issue_tracker: https://github.com/Heewookji/gtm/issues
-version: 0.1.0
+version: 0.1.1
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
