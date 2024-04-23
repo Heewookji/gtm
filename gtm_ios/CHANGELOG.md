@@ -22,3 +22,7 @@
 ## 0.1.0
 
 * add hideInfoLog
+
+## 0.1.1
+
+* apply main thread to customTag
