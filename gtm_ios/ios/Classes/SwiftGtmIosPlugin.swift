@@ -79,10 +79,8 @@ final class CustomTag: NSObject, TAGCustomFunction {
     }
 
     func execute(withParameters parameters: [AnyHashable : Any]!) -> NSObject! {
-        do {
-          try SwiftGtmIosPlugin.channel!.invokeMethod("CustomTag", arguments: encodeArguments(parameters))
-        } catch {
-          return nil
+        DispatchQueue.main.async {
+          _ = try? SwiftGtmIosPlugin.channel!.invokeMethod("CustomTag", arguments: self.encodeArguments(parameters))
         }
         return nil
     }
