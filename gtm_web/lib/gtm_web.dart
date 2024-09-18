@@ -1,16 +1,20 @@
 import 'dart:js_interop';
 
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:gtm_platform_interface/gtm_platform_interface.dart';
 
 class GtmWeb extends GtmPlatform {
   GtmWeb();
 
-  static void registerWith() {
+  static void registerWith(Registrar registarar) {
     GtmPlatform.instance = GtmWeb();
   }
 
   @override
   void hideInfoLog() {}
+
+  @override
+  void setCustomTagTypes(List<CustomTagType> tagTypes) {}
 
   @override
   Future<bool> push(
@@ -28,7 +32,7 @@ class GtmWeb extends GtmPlatform {
       return false;
     }
   }
-
-  @JS('dataLayer.push')
-  external void _push(data);
 }
+
+@JS('dataLayer.push')
+external void _push(JSAny? data);

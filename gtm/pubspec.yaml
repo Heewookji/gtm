@@ -16,6 +16,8 @@ flutter:
         default_package: gtm_android
       ios:
         default_package: gtm_ios
+      web:
+        default_package: gtm_web
 
 dependencies:
   flutter:
@@ -23,6 +25,8 @@ dependencies:
   gtm_platform_interface: ^0.1.0
   gtm_android: ^0.1.2
   gtm_ios: ^0.1.1
+  gtm_web: 
+    path: ../gtm_web
 
 dev_dependencies:
   flutter_test:
