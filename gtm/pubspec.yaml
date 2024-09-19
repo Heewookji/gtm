@@ -25,8 +25,7 @@ dependencies:
   gtm_platform_interface: ^0.1.0
   gtm_android: ^0.1.2
   gtm_ios: ^0.1.1
-  gtm_web: 
-    path: ../gtm_web
+  gtm_web: ^0.0.1
 
 dev_dependencies:
   flutter_test:
