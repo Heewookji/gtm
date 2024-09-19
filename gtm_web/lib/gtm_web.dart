@@ -3,6 +3,9 @@ import 'dart:js_interop';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:gtm_platform_interface/gtm_platform_interface.dart';
 
+@JS('dataLayer.push')
+external void _push(JSAny? data);
+
 class GtmWeb extends GtmPlatform {
   GtmWeb();
 
@@ -33,6 +36,3 @@ class GtmWeb extends GtmPlatform {
     }
   }
 }
-
-@JS('dataLayer.push')
-external void _push(JSAny? data);
