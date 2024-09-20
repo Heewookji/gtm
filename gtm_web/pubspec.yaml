@@ -1,0 +1,32 @@
+name: gtm_web
+description: Flutter gtm plugin web
+repository: https://github.com/Heewookji/gtm
+issue_tracker: https://github.com/Heewookji/gtm/issues
+version: 0.0.1
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+  flutter: ">=3.0.0"
+
+flutter:
+  plugin:
+    implements: gtm
+    platforms:
+      web:
+        pluginClass: GtmWeb
+        fileName: gtm_web.dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  gtm_platform_interface: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+
