@@ -11,12 +11,12 @@ This package is not an official package.
   - [iOS, Android](#ios-android)
   - [Web](#web)
 - [How to use](#how-to-use)
-  - [iOS, Android](#ios-android)
+  - [iOS, Android](#ios-android-1)
     - [Push event](#push-event)
     - [CustomTag](#customtag)
-  - [Web](#web)
-    - [Push event](#push-event)
-    - [CustomTag](#customtag)
+  - [Web](#web-1)
+    - [Push event](#push-event-1)
+    - [CustomTag](#customtag-1)
 
 # Example
 
