@@ -17,9 +17,6 @@ class GtmWeb extends GtmPlatform {
   void hideInfoLog() {}
 
   @override
-  void setCustomTagTypes(List<CustomTagType> tagTypes) {}
-
-  @override
   Future<bool> push(
     String eventName, {
     Map<String, dynamic>? parameters,
