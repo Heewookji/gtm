@@ -58,3 +58,7 @@
 ## 0.1.6
 
 * apply main thread to ios customTag
+
+## 1.0.0
+
+* add web platform
