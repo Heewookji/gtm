@@ -8,12 +8,15 @@ This package is not an official package.
 
 - [Example](#example)
 - [Configuration](#configuration)
-  - [Firebase Analytics](#firebase-analytics)
-  - [iOS](#ios)
-  - [Android](#android)
+  - [iOS, Android](#ios-android)
+  - [Web](#web)
 - [How to use](#how-to-use)
-  - [Push event](#push-event)
-  - [CustomTag](#customtag)
+  - [iOS, Android](#ios-android)
+    - [Push event](#push-event)
+    - [CustomTag](#customtag)
+  - [Web](#web)
+    - [Push event](#push-event)
+    - [CustomTag](#customtag)
 
 # Example
 
