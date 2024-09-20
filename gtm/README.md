@@ -49,6 +49,7 @@ gtm.push(
     'user_no': 912342,
   },
 );
+
 ```
 
 # Configuration
@@ -56,6 +57,8 @@ gtm.push(
 ## iOS, Android
 
 ### Firebase Analytics
+
+<img src="https://github.com/user-attachments/assets/b0a08dea-5975-4994-aac9-e680382e5fbb" width="300" alt="firebase-analytics">
 
 To use this plugin on mobile, you need to set `Firebase Analytics` up in your project first.
 Because `firebase analytics` is playing the role of `datalayer`.
@@ -84,6 +87,10 @@ You can find more configuration details at [GTM Android Documentation](https://d
 </aside>
 
 ## Web
+
+<img src="https://github.com/user-attachments/assets/3fc08ed2-a9da-49c6-8f8d-fbf4b01c9f3b" width="300" alt="datalayer">
+
+You need to set datalayer in your web project by following the steps below.
 
 1. [Create Web GTM Container](https://tagmanager.google.com/?/home)
 2. Add [code snippet](https://support.google.com/tagmanager/answer/14847097) to `web/index.html`
@@ -177,6 +184,8 @@ Parameter value can be `String`, `bool`, `int`, `double`, `List`, `Map`.
 
 ### CustomTag
 
-Unlike iOS and Android platforms, you need to set custom tags inside the web gtm container, not in code.
+<img src="https://github.com/user-attachments/assets/086562e8-9799-479f-8c7c-66d3bc5a7690" width="450" alt="custom-tag-web">
+
+Unlike iOS and Android platforms, you need to set tags inside the web gtm container, not in code.
 
 If the tag you are looking for is not provided by default and is not in the gallery, you can implement it yourself through Custom Html.
