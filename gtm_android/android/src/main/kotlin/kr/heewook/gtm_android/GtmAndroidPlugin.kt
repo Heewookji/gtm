@@ -48,6 +48,9 @@ class GtmAndroidPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   override fun onDetachedFromActivity() {}
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+     if (!::channel.isInitialized) {
+        return // Prevent crash if channel is not initialized
+    }
     channel.setMethodCallHandler(null)
   }
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: MethodChannelResult) {
