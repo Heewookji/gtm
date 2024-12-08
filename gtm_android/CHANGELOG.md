@@ -38,3 +38,7 @@
 ## 0.1.2
 
 * add hideInfoLog
+
+## 0.1.3
+
+* fix crash on android background
