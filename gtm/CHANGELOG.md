@@ -62,3 +62,7 @@
 ## 1.0.0
 
 * add web platform
+
+## 1.0.1
+
+* fix crash on android background
