@@ -66,3 +66,7 @@
 ## 1.0.1
 
 * fix crash on android background
+
+## 1.0.2
+
+* fix kotlin backing field error
