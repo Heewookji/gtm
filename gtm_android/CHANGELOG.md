@@ -42,3 +42,7 @@
 ## 0.1.3
 
 * fix crash on android background
+
+## 0.1.4
+
+* rollback fix crash on android background
